@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Silver Sign | Official Certificate</title>
+    <title>Black Store | Apps</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
 
-        /* لوحة ألوان الفضاء الفضي المعدني - هادئة وبسيطة */
+        /* لوحة ألوان معدنية هادئة وبسيطة */
         :root {
             --space-black: #050505;
             --space-charcoal: #121316;
-            --glass-bg: rgba(200, 205, 215, 0.10);
-            --glass-border-light: rgba(255, 255, 255, 0.3);
-            --glass-border-dark: rgba(100, 105, 115, 0.2);
+            --glass-bg: rgba(200, 205, 215, 0.08);
+            --glass-border-light: rgba(255, 255, 255, 0.2);
+            --glass-border-dark: rgba(100, 105, 115, 0.1);
             --primary-silver: #D1D5DB; 
-            --primary-silver-glow: rgba(209, 213, 219, 0.3);
+            --primary-silver-glow: rgba(209, 213, 219, 0.2);
             --text-main: #ffffff;
             --text-muted: #9CA3AF;
         }
@@ -29,387 +29,274 @@
             align-items: center;
             font-family: 'Tajawal', sans-serif;
             color: var(--text-main);
-            overflow: hidden;
             background-color: var(--space-black);
             background-image: 
-                radial-gradient(circle at center, var(--space-charcoal) 0%, var(--space-black) 70%),
-                radial-gradient(white, rgba(255,255,255,.15) 2px, transparent 3px),
-                radial-gradient(white, rgba(255,255,255,.10) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.05) 2px, transparent 3px);
-            background-size: 100% 100%, 350px 350px, 200px 200px, 150px 150px;
-            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-            animation: spacePan 60s linear infinite;
-        }
-
-        @keyframes spacePan {
-            from { background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; }
-            to { background-position: 0 0, 440px 460px, 530px 670px, 470px 500px; }
+                radial-gradient(circle at center, var(--space-charcoal) 0%, var(--space-black) 80%);
         }
 
         .glass-panel-3d {
-            position: relative;
-            z-index: 10;
             width: 90%;
-            max-width: 380px;
-            padding: 40px 25px;
+            max-width: 400px;
+            padding: 35px 25px;
             box-sizing: border-box;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(150, 155, 165, 0.03));
-            backdrop-filter: blur(25px) saturate(120%);
-            -webkit-backdrop-filter: blur(25px) saturate(120%);
-            border-top: 1.5px solid var(--glass-border-light);
-            border-left: 1.5px solid var(--glass-border-light);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(150, 155, 165, 0.02));
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-top: 1px solid var(--glass-border-light);
+            border-left: 1px solid var(--glass-border-light);
             border-bottom: 1px solid var(--glass-border-dark);
             border-right: 1px solid var(--glass-border-dark);
-            border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             text-align: center;
         }
 
         .profile-img {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
-            border: 2px solid var(--glass-border-light);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            margin-bottom: 12px;
+            border: 1px solid var(--glass-border-light);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        h1 { font-size: 26px; font-weight: 800; margin: 0 0 5px 0; }
-        .subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; font-weight: 500; transition: color 0.3s ease; }
+        h1 { font-size: 22px; font-weight: 800; margin: 0 0 4px 0; }
+        .subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; font-weight: 500; }
 
-        /* حقول الرفع والتعبئة */
-        .form-section { display: flex; flex-direction: column; gap: 16px; }
-
-        .input-recessed {
+        /* القائمة المنسدلة لاختيار الشهادة */
+        .cert-selector-wrapper {
             position: relative;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
         }
 
-        .input-recessed:hover { background: rgba(255, 255, 255, 0.05); }
-        .input-recessed.has-file { border-color: var(--primary-silver); box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 0 12px var(--primary-silver-glow); }
-        .input-recessed input[type="file"] { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 5; }
-
-        .input-text {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-muted);
-            pointer-events: none;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            z-index: 2;
-        }
-        .input-recessed.has-file .input-text { color: var(--text-main); }
-
-        .password-recessed {
+        .glass-select {
             width: 100%;
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
-            padding: 16px 20px;
+            border-radius: 14px;
+            padding: 14px 16px;
             color: var(--text-main);
             font-family: 'Tajawal', sans-serif;
             font-size: 14px;
-            box-sizing: border-box;
+            appearance: none;
             outline: none;
-            transition: all 0.3s ease;
-            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.6);
-        }
-        .password-recessed:focus { border-color: var(--primary-silver); box-shadow: 0 0 15px var(--primary-silver-glow), inset 0 2px 4px rgba(0,0,0,0.5); }
-
-        .btn-extruded {
-            width: 100%;
-            background: linear-gradient(180deg, #F3F4F6 0%, #9CA3AF 100%);
-            color: #111827;
-            border: none;
-            border-top: 1px solid rgba(255, 255, 255, 0.8);
-            border-left: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 18px;
-            padding: 16px;
-            font-size: 16px;
-            font-family: 'Tajawal', sans-serif;
-            font-weight: 800;
             cursor: pointer;
-            transition: all 0.1s ease;
-            box-shadow: 0 8px 0 #6B7280, 0 15px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+            transition: all 0.2s ease;
         }
-        .btn-extruded:active { transform: translateY(6px); box-shadow: 0 2px 0 #6B7280, 0 8px 10px rgba(0, 0, 0, 0.5); }
-        .btn-extruded:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: 0 8px 0 #6B7280; }
 
-        /* ظهور واختفاء */
-        .hidden-step { display: none !important; }
-        .visible-step { display: flex; animation: slideDownFade 0.4s ease forwards; }
+        .glass-select:focus {
+            border-color: var(--primary-silver);
+        }
 
-        @keyframes slideDownFade { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+        .glass-select option {
+            background: var(--space-charcoal);
+            color: var(--text-main);
+        }
 
-        /* المعالجة */
-        .processing-container { display: none; flex-direction: column; gap: 15px; text-align: right; padding: 10px 20px; }
-        .proc-step { font-size: 14px; font-weight: 700; color: var(--text-muted); opacity: 0; transform: translateY(10px); transition: all 0.4s ease; }
-        .proc-step.active { opacity: 1; transform: translateY(0); color: var(--primary-silver); text-shadow: 0 0 8px var(--primary-silver-glow); }
-        .proc-step.done { color: var(--text-main); text-shadow: none; }
+        .cert-selector-wrapper::after {
+            content: "▼";
+            font-size: 10px;
+            color: var(--text-muted);
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
 
-        /* التطبيقات */
+        /* حاوية التطبيقات */
         .apps-container {
-            display: none; flex-direction: column; gap: 10px; max-height: 380px; overflow-y: auto; padding-right: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 380px;
+            overflow-y: auto;
+            padding-right: 4px;
         }
+
         .apps-container::-webkit-scrollbar { width: 4px; }
         .apps-container::-webkit-scrollbar-track { background: transparent; }
-        .apps-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+        .apps-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
 
         .app-item {
-            display: flex; align-items: center; justify-content: space-between;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px; padding: 10px 14px;
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 10px 14px;
+            transition: all 0.2s ease;
         }
-        .app-item:hover { border-color: rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.08); }
+
+        .app-item:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
         .app-meta { display: flex; align-items: center; gap: 12px; }
-        .app-icon { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; border: 1px solid rgba(255, 255, 255, 0.1); }
-        .app-name { font-size: 15px; font-weight: 700; }
+        .app-icon { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; }
+        .app-name { font-size: 15px; font-weight: 700; color: var(--text-main); }
+
         .btn-install {
-            background: rgba(209, 213, 219, 0.1); color: var(--primary-silver);
-            border: 1px solid rgba(209, 213, 219, 0.3); border-radius: 20px;
-            padding: 6px 16px; font-family: 'Tajawal', sans-serif; font-size: 13px; font-weight: 800;
-            cursor: pointer; transition: all 0.2s ease;
+            background: rgba(209, 213, 219, 0.1);
+            color: var(--primary-silver);
+            border: 1px solid rgba(209, 213, 219, 0.2);
+            border-radius: 16px;
+            padding: 6px 16px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .btn-install:hover { background: var(--primary-silver); color: #111827; }
+
+        .btn-install:hover:not(:disabled) {
+            background: var(--primary-silver);
+            color: #111827;
+        }
+
+        .btn-install:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
 
-    <main class="glass-panel-3d" id="main-panel">
+    <main class="glass-panel-3d">
         
         <img src="https://up6.cc/2026/04/177671398024321.png" alt="Logo" class="profile-img">
         
-        <h1>Sign Silver</h1>
-        <p class="subtitle" id="status-desc">توقيع احترافي بشهادتك الخاصة</p>
+        <h1>Black Store</h1>
+        <p class="subtitle">تثبيت التطبيقات بالشهادات المتوفرة</p>
 
-        <div class="form-section" id="upload-section">
-            
-            <label class="input-recessed visible-step" id="box-p12">
-                <span class="input-text" id="txt-p12">١. إدراج شهادة (.p12)</span>
-                <input type="file" id="file-p12" accept=".p12,.pfx,application/x-pkcs12" onchange="stepFileSelected(this, 'txt-p12', 'box-p12', 'step-prov')">
-            </label>
-
-            <label class="input-recessed hidden-step" id="step-prov">
-                <span class="input-text" id="txt-prov">٢. إدراج ملف التوفير (.mobileprovision)</span>
-                <input type="file" id="file-prov" accept=".mobileprovision" onchange="stepFileSelected(this, 'txt-prov', 'step-prov', 'step-pass')">
-            </label>
-
-            <input type="password" id="step-pass" class="password-recessed hidden-step" placeholder="٣. كلمة مرور الشهادة..." oninput="checkPassword(this)">
-
-            <button class="btn-extruded hidden-step" id="step-btn" onclick="initiateSign()">توقيع ودمج التطبيقات</button>
-            
+        <div class="cert-selector-wrapper">
+            <select id="cert-selector" class="glass-select">
+                <option value="0">شهادة: XL AXIATA</option>
+                <option value="1">شهادة: ناشيونال اويل</option>
+                <option value="2">شهادة: العراق</option>
+                <option value="3">شهادة: فور ايفر مارك</option>
+                <option value="4">الشهادة الصينية</option>
+            </select>
         </div>
 
-        <div class="processing-container" id="processing-section">
-            <div class="proc-step" id="proc-1">يتم رفع الشهادة للسيرفر...</div>
-            <div class="proc-step" id="proc-2">جارِ دمج ملف التوفير...</div>
-            <div class="proc-step" id="proc-3">جارِ توقيع حزمة التطبيقات...</div>
-        </div>
+        <div class="apps-container">
+            
+            <div class="app-item">
+                <div class="app-meta">
+                    <img src="https://up6.cc/2026/03/177310668856421.png" alt="zsign" class="app-icon">
+                    <span class="app-name">Zsign</span>
+                </div>
+                <button class="btn-install" onclick="requestInstall('Zsign', 'Zsign.ipa', 'https://up6.cc/2026/03/177310668856421.png', this)">تثبيت</button>
+            </div>
 
-        <div class="apps-container" id="apps-section"></div>
+            <div class="app-item">
+                <div class="app-meta">
+                    <img src="https://i.postimg.cc/pTgZst3h/IMG-0047.jpg" alt="ESign" class="app-icon">
+                    <span class="app-name">ESign</span>
+                </div>
+                <button class="btn-install" onclick="requestInstall('ESign', 'Esign.ipa', 'https://i.postimg.cc/pTgZst3h/IMG-0047.jpg', this)">تثبيت</button>
+            </div>
+
+            <div class="app-item">
+                <div class="app-meta">
+                    <img src="https://i.postimg.cc/fLk2HCyk/IMG-3180.jpg" alt="KSign" class="app-icon">
+                    <span class="app-name">KSign</span>
+                </div>
+                <button class="btn-install" onclick="requestInstall('KSign', 'Ksign.ipa', 'https://i.postimg.cc/fLk2HCyk/IMG-3180.jpg', this)">تثبيت</button>
+            </div>
+
+            <div class="app-item">
+                <div class="app-meta">
+                    <img src="https://up6.cc/2026/03/177470679847981.png" alt="GBOX" class="app-icon">
+                    <span class="app-name">GBOX</span>
+                </div>
+                <button class="btn-install" onclick="requestInstall('GBOX', 'GBox.ipa', 'https://up6.cc/2026/03/177470679847981.png', this)">تثبيت</button>
+            </div>
+
+            <div class="app-item">
+                <div class="app-meta">
+                    <img src="https://up6.cc/2026/03/177470679853622.png" alt="Scarlet" class="app-icon">
+                    <span class="app-name">Scarlet</span>
+                </div>
+                <button class="btn-install" onclick="requestInstall('Scarlet', 'Scarlet.ipa', 'https://up6.cc/2026/03/177470679853622.png', this)">تثبيت</button>
+            </div>
+
+        </div>
 
     </main>
 
     <script>
-        // إعدادات الـ API وقناة التليجرام والتطبيقات
-        const OFFICIAL_SIGN_API = "/sign-merge.php"; // مسار الـ API الموجود في السيرفر الخاص بك
+        const ZSIGN_CACHE_INSTALL_API = "https://appiraq.com/appiraq-cache-install.php";
         const TELEGRAM_CHANNEL_URL = "https://t.me/hl00ss";
-        let signedAppsData = [];
 
-        // قائمة التطبيقات التي سيتم إرسالها للسيرفر لتوقيعها دُفعة واحدة
-        const appsToSign = [
-            { name: "Zsign", ipa: "/apps/Zsign.ipa", image: "https://up6.cc/2026/03/177310668856421.png" },
-            { name: "ESign", ipa: "/apps/Esign.ipa", image: "https://i.postimg.cc/pTgZst3h/IMG-0047.jpg" },
-            { name: "KSign", ipa: "/apps/Ksign.ipa", image: "https://i.postimg.cc/fLk2HCyk/IMG-3180.jpg" },
-            { name: "GBOX", ipa: "/apps/GBox.ipa", image: "https://up6.cc/2026/03/177470679847981.png" },
-            { name: "Scarlet", ipa: "/apps/Scarlet.ipa", image: "https://up6.cc/2026/03/177470679853622.png" }
+        // مصفوفة الشهادات المخزنة في السيرفر
+        const zsignFreeCerts = [
+            { name: "XL AXIATA PT TBK", p12: "https://github.com/ipasoon/ipasoon-install/releases/download/v1.0.0/XL.AXIATA.PT.TBK.p12", mp: "https://github.com/ipasoon/ipasoon-install/releases/download/v1.0.0/XL.AXIATA.PT.TBK.mobileprovision", pass: "123", bundleKey: "xl_axiata" },
+            { name: "ناشيونال اويل", p12: "https://github.com/ipasoon/ipasoon-install/releases/download/v1.0.0/National.Oilwell.Varco.Inc.p12", mp: "https://github.com/ipasoon/ipasoon-install/releases/download/v1.0.0/National.Oilwell.Varco.Inc.mobileprovision", pass: "AppleP12.com", bundleKey: "national" },
+            { name: "العراق", p12: "https://github.com/ipasoon/ipasoon-install/releases/download/v1.0.0/iraq.p12", mp: "https://github.com/ipasoon/ipasoon-install/releases/download/v1.0.0/iraq.mobileprovision", pass: "1", bundleKey: "iraq" },
+            { name: "فور ايفر مارك", p12: "https://github.com/ipasoon/ipasoon-install/releases/download/3/Forevermark.Marketing.Shanghai.Limited.p12", mp: "https://github.com/ipasoon/ipasoon-install/releases/download/3/Forevermark.Marketing.Shanghai.Limited.mobileprovision", pass: "1", bundleKey: "forevermark" },
+            { name: "الصينية", p12: "https://github.com/ipasoon/ipasoon-install/releases/download/3/China.Academy.of.Railway.Sciences.p12", mp: "https://github.com/ipasoon/ipasoon-install/releases/download/3/China.Academy.of.Railway.Sciences.mobileprovision", pass: "1", bundleKey: "china" }
         ];
 
-        // تأثير تفاعلي عند اختيار الملف
-        function stepFileSelected(input, textId, boxId, nextStepId) {
-            const textElement = document.getElementById(textId);
-            const boxElement = document.getElementById(boxId);
+        function scheduleTelegramRedirect() {
+            setTimeout(() => { window.location.href = TELEGRAM_CHANNEL_URL; }, 2000);
+        }
+
+        async function requestInstall(appName, ipaFileName, iconUrl, btnElement) {
+            // جلب الشهادة التي اختارها المستخدم من القائمة
+            const selectedCertIndex = document.getElementById('cert-selector').value;
+            const activeCert = zsignFreeCerts[selectedCertIndex];
+
+            const originalText = btnElement.innerText;
+            btnElement.innerText = "جاري...";
+            btnElement.disabled = true;
+
+            const safeKey = activeCert.bundleKey.replace(/[^a-zA-Z0-9._-]/g, "_");
+            const bundle = `com.zsign.appiraq.c.${safeKey}`;
+            const pass = activeCert.pass != null && String(activeCert.pass).trim() !== "" ? String(activeCert.pass) : "1";
             
-            if (input.files && input.files.length > 0) {
-                textElement.textContent = input.files[0].name;
-                boxElement.classList.add('has-file');
-                
-                if(nextStepId) {
-                    const nextEl = document.getElementById(nextStepId);
-                    nextEl.classList.remove('hidden-step');
-                    nextEl.classList.add('visible-step');
-                }
-            }
-        }
-
-        // إظهار زر التوقيع عند كتابة الرمز
-        function checkPassword(input) {
-            const btn = document.getElementById('step-btn');
-            if(input.value.trim().length > 0) {
-                btn.classList.remove('hidden-step');
-                btn.classList.add('visible-step');
-            } else {
-                btn.classList.remove('visible-step');
-                btn.classList.add('hidden-step');
-            }
-        }
-
-        // توليد معرف فريد للتطبيقات الموقعة
-        function generateAutoBundleId() {
-            const randomPart = Math.random().toString(36).slice(2, 8);
-            const timePart = Date.now().toString(36);
-            return `com.zsign.auto.${timePart}${randomPart}`;
-        }
-
-        // العملية الرئيسية: إرسال البيانات للـ API
-        async function initiateSign() {
-            const p12Input = document.getElementById('file-p12');
-            const mpInput = document.getElementById('file-prov');
-            const passInput = document.getElementById('step-pass');
-            const statusDesc = document.getElementById('status-desc');
-            const btn = document.getElementById('step-btn');
-
-            const p12File = p12Input.files[0];
-            const mpFile = mpInput.files[0];
-            const pass = passInput.value.trim();
-
-            if (!p12File || !mpFile || !pass) {
-                alert('يرجى إكمال جميع الحقول بدقة.');
-                return;
-            }
-
-            // تفعيل واجهة التحميل
-            btn.disabled = true;
-            document.getElementById('upload-section').style.display = "none";
-            document.getElementById('processing-section').style.display = "flex";
-            statusDesc.innerText = "جاري الاتصال بالسيرفر...";
-
-            // تشغيل الانيميشن الخاص بالنصوص
-            setTimeout(() => { document.getElementById('proc-1').classList.add('active'); }, 100);
-            
-            const formData = new FormData();
-            formData.append('p12', p12File);
-            formData.append('mobileprovision', mpFile);
-            formData.append('password', pass);
-            formData.append('bundle', generateAutoBundleId());
-            formData.append('apps', JSON.stringify(appsToSign));
-
             try {
-                // إرسال الطلب للسيرفر
-                const response = await fetch(OFFICIAL_SIGN_API, {
-                    method: 'POST',
-                    body: formData
+                const response = await fetch(ZSIGN_CACHE_INSTALL_API, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        ipa: `https://appiraq.com/apps/${ipaFileName}`,
+                        p12: activeCert.p12,
+                        mp: activeCert.mp,
+                        pass: pass,
+                        bundle: bundle,
+                        name: appName,
+                        label: `${appName} — ${activeCert.name}`,
+                        image: iconUrl
+                    })
                 });
 
-                // تحديث واجهة التحميل
-                document.getElementById('proc-1').classList.add('done');
-                document.getElementById('proc-2').classList.add('active');
-
-                const rawText = await response.text();
-                let data = null;
-                try { data = JSON.parse(rawText); } catch (e) { console.error("Parse Error"); }
-
-                if (!response.ok) {
-                    throw new Error(data?.error || data?.message || "تعذر الاتصال بالسيرفر");
-                }
-                if (data && data.ok === false) {
-                    throw new Error(data.error || data.message || "رفض السيرفر الطلب");
-                }
-
-                const signedApps = Array.isArray(data?.apps) ? data.apps : [];
-                if (!signedApps.length) throw new Error("لم يتم إرجاع أي تطبيقات موقعة من السيرفر");
-
-                // تحديث واجهة التحميل (الخطوة الأخيرة)
-                document.getElementById('proc-2').classList.add('done');
-                document.getElementById('proc-3').classList.add('active');
+                const data = await response.json();
                 
-                signedAppsData = signedApps;
-
-                // إظهار قائمة التطبيقات الموقعة
-                setTimeout(() => {
-                    document.getElementById('processing-section').style.display = "none";
-                    statusDesc.innerText = "✓ اكتمل التوقيع. يمكنك التثبيت الآن";
-                    statusDesc.style.color = "var(--text-main)";
-                    renderSignedAppsList();
-                }, 1500);
-
+                if (data && data.ok === true && data.install_url) {
+                    btnElement.innerText = "نجاح ✓";
+                    scheduleTelegramRedirect();
+                    window.location.href = data.install_url;
+                } else {
+                    alert("تعذّر إنشاء الرابط.\nالسبب: " + (data.error || "خطأ من السيرفر"));
+                    btnElement.innerText = "فشل";
+                }
             } catch (error) {
-                console.error("Sign Error:", error);
-                statusDesc.innerText = "× حدث خطأ أثناء التوقيع";
-                statusDesc.style.color = "#FF3B30";
-                alert("الخطأ: " + (error.message || "غير معروف"));
-                
-                // إعادة الواجهة لحالة الرفع
-                document.getElementById('processing-section').style.display = "none";
-                document.getElementById('upload-section').style.display = "flex";
-                btn.disabled = false;
-            }
-        }
-
-        // عرض التطبيقات داخل الواجهة بعد توقيعها
-        function renderSignedAppsList() {
-            const appsSection = document.getElementById('apps-section');
-            appsSection.innerHTML = '';
-            
-            signedAppsData.forEach((app, idx) => {
-                const appName = app.name || appsToSign[idx]?.name || 'App';
-                const appIcon = app.image || appsToSign[idx]?.image || 'https://via.placeholder.com/40';
-                
-                const html = `
-                    <div class="app-item visible-step" style="animation-delay: ${idx * 0.1}s">
-                        <div class="app-meta">
-                            <img src="${appIcon}" alt="${appName}" class="app-icon">
-                            <span class="app-name">${appName}</span>
-                        </div>
-                        <button class="btn-install" onclick="installApp(${idx})">تثبيت</button>
-                    </div>
-                `;
-                appsSection.innerHTML += html;
-            });
-            
-            appsSection.style.display = "flex";
-        }
-
-        // دالة التثبيت النهائية عند الضغط على زر تثبيت
-        function installApp(index) {
-            const app = signedAppsData[index];
-            if (!app) return;
-
-            const installUrl = app.installUrl || app.install_url || app.url || app.manifestUrl || app.manifest_url || "";
-            
-            if (!installUrl) {
-                alert('تعذر العثور على رابط التثبيت من السيرفر.');
-                return;
+                alert("حدث خطأ في الاتصال، يرجى المحاولة مرة أخرى.");
+                btnElement.innerText = "خطأ";
             }
 
-            // تجهيز الرابط بصيغة itms-services إذا كان .plist
-            let finalInstallUrl = installUrl;
-            if (installUrl.includes('.plist') && !installUrl.startsWith('itms-services://')) {
-                finalInstallUrl = `itms-services://?action=download-manifest&url=${encodeURIComponent(installUrl)}`;
-            }
-
-            // توجيه المستخدم لقناتك بعد ثانيتين
             setTimeout(() => {
-                window.location.href = TELEGRAM_CHANNEL_URL;
-            }, 2000);
-
-            // بدء التثبيت
-            window.location.href = finalInstallUrl;
+                if(btnElement.innerText === "فشل" || btnElement.innerText === "خطأ") {
+                    btnElement.innerText = originalText;
+                    btnElement.disabled = false;
+                }
+            }, 2500);
         }
     </script>
-
 </body>
 </html>
