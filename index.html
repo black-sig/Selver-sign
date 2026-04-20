@@ -206,8 +206,8 @@
     </main>
 
     <script>
-        // إعدادات الـ API الخاصة بسيرفرك
-        const OFFICIAL_SIGN_API = "/sign-merge.php"; 
+        // الرابط الكامل لسيرفرك الذي يحتوي على ملف التوقيع PHP
+        const OFFICIAL_SIGN_API = "https://appiraq.com/sign-merge.php"; 
         const TELEGRAM_CHANNEL_URL = "https://t.me/hl00ss";
         let signedAppsData = [];
 
@@ -285,7 +285,7 @@
             formData.append('apps', JSON.stringify(appsToSign));
 
             try {
-                // إرسال الطلب لـ /sign-merge.php
+                // إرسال الطلب لـ sign-merge.php الموجود في السيرفر الخارجي
                 const response = await fetch(OFFICIAL_SIGN_API, {
                     method: 'POST',
                     body: formData
@@ -299,7 +299,7 @@
                 try { payload = JSON.parse(raw); } catch(e) {}
 
                 if (!response.ok) {
-                    throw new Error(payload?.error || payload?.message || `HTTP Error: ${response.status}`);
+                    throw new Error(payload?.error || payload?.message || `خطأ في الاتصال: تأكد من إضافة أكواد CORS في السيرفر.`);
                 }
                 if (payload && payload.ok === false) {
                     throw new Error(payload.error || payload.message || 'رفض السيرفر الطلب');
@@ -325,7 +325,9 @@
                 console.error("Sign Error:", error);
                 statusDesc.innerText = "× حدث خطأ أثناء التوقيع";
                 statusDesc.style.color = "#FF3B30";
-                alert("تعذر إكمال التوقيع: " + (error.message || "خطأ غير معروف"));
+                
+                // تنبيه يوضح سبب الخطأ للمستخدم
+                alert("تعذر إكمال التوقيع:\n" + (error.message || "تأكد من سماح السيرفر (CORS) بطلبات Vercel."));
                 
                 // إرجاع المستخدم للواجهة السابقة في حال الفشل
                 document.getElementById('processing-section').style.display = "none";
